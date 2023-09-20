@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\WebhookLog;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 
@@ -16,5 +17,6 @@ class FindyMailController extends Controller
 
         Log::info('Received Findymail webhook.', $payload);
 
+        WebhookLog::create(['name' => 'Findymail', 'data' => $payload]);
     }
 }
