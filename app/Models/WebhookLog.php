@@ -12,6 +12,6 @@ class WebhookLog extends Model
     protected $fillable = ['name', 'data'];
 
     protected $casts = [
-        'data' => 'json'
+        'data' => 'array'
     ];
 }
