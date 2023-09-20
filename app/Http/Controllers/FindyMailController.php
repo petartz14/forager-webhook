@@ -12,13 +12,10 @@ class FindyMailController extends Controller
     {
         WebhookLog::create(['name' => 'Findymail-1', 'data' => ['name' => 'test']]);
 
-        header('Content-Type: application/json');
-
         $request = file_get_contents('php://input');
         $payload = json_decode($request, true)['data'];
 
-        Log::info('Received Findymail webhook.', $payload);
-
+        WebhookLog::create(['name' => 'Findymail', 'data' => [$payload]]);
         WebhookLog::create(['name' => 'Findymail', 'data' => $payload]);
     }
 }
