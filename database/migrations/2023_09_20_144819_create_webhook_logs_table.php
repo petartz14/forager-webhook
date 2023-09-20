@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('webhook_logs', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->json('data');
+            $table->json('data')->nullable();
             $table->timestamps();
         });
     }
