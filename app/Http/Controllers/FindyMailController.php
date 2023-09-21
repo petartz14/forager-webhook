@@ -16,7 +16,7 @@ class FindyMailController extends Controller
 
         WebhookLog::create(['name' => 'Findymail', 'data' => ['data' => $request]]);
 
-        $payload = json_decode($request, true)['payload'];
+        $payload = json_decode($request, true);
 
         WebhookLog::create(['name' => 'Findymail', 'data' => $payload]);
     }
